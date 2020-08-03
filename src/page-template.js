@@ -1,8 +1,7 @@
-//const generateHTML
-
-
 // create the teams
 const generateTeam = team => {
+
+
     const generateManager = manager => {
         return `
         <div class="card employee-card">
@@ -19,6 +18,7 @@ const generateTeam = team => {
         </div>
         `;
     };
+
     const generateEngineer = engineer => {
         return `
         <div class="card employee-card">
@@ -36,6 +36,7 @@ const generateTeam = team => {
         </div
         `;
     };
+
     const generateIntern = intern => {
         return `
         <div class="card employee-card">
@@ -53,4 +54,59 @@ const generateTeam = team => {
         </div
         `;
     };
+
+    const html = [];
+
+    html.push(team
+        .filter(employee => employee.getRole() === "Manager")
+        .map(manager => generateManager(manager))
+    );
+    html.push(team
+        .filter(employee => employee.getRole() === "Engineer")
+        .map(engineer => generateEngineer(engineer))
+        .join("")
+    );
+    html.push(team
+        .filter(employee => employee.getRole() === "Intern")
+        .map(intern => generateIntern(intern))
+        .join("")
+    )
+
+    return html.join("");
+
 }
+
+module.exports = team => {
+
+    return `
+    <!Doctype html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>My Team</title>
+        <link rel="stylesheet" href="../dist/style.css">
+    <head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 jumbotron mb-3 team-heading">
+                    <h1 class="text-center">My Team</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="team-area col-12 d-flex justify-content-center">
+                    ${generateTeam(team)}
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
+    `;
+};
+

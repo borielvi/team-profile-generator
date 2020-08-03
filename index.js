@@ -8,7 +8,7 @@ const fs = require("fs");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const render = require("./src/page-template");
+const render = require("./src/page-template.js");
 
 const teamMembers = [];
 const idArray = [];
@@ -129,7 +129,7 @@ function appMenu () {
                     );
                     if(pass) {
                         if (idArray.includes(answer)) {
-                            return "This ID is already take. Please enter a differnet number.";
+                            return "This ID is already taken. Please enter a differnet number.";
                         } else {
                             return true;
                         }
