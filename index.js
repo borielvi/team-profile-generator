@@ -83,7 +83,7 @@ function appMenu () {
 
         inquirer.prompt([
             {
-                type: "input",
+                type: "list",
                 name: "memberChoice",
                 message: "Which type of team member would you like to add?",
                 choices: [
@@ -140,7 +140,7 @@ function appMenu () {
             },
             {
                 type: "input",
-                name: "enigneerEmail",
+                name: "engineerEmail",
                 message: "What is your engineer's email?",
                 validate: answer => {
                     const pass = answer.match(
@@ -172,7 +172,7 @@ function appMenu () {
     }
 
     function addIntern() {
-        inquirer([
+        inquirer.prompt([
             {
                 type: "input",
                 name: "internName",
@@ -190,11 +190,11 @@ function appMenu () {
                 message: "What is intern's Id?",
                 validate: answer => {
                     const pass = answer.match(
-                        /^[1-9]\-d*$/
+                        /^[1-9]\d*/
                     );
                     if(pass) {
-                        if(idArray.includes(answer)) {
-                            return "This ID is already taken. Please enter a different number.";
+                        if (idArray.includes(answer)) {
+                            return "This ID is already taken. Please enter a differnet number.";
                         } else {
                             return true;
                         }

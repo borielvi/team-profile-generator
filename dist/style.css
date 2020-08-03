@@ -1,0 +1,25 @@
+.manager-card {
+    background-color: darkseagreen;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+    text-align: center;
+}
+
+.engineer-card {
+    background-color: darkseagreen;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+    text-align: center;
+}
+
+.intern-card {
+    background-color: darkseagreen;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+    text-align: center;
+}
+
+.column {
+    width: 33%;
+    float: left;
+}
